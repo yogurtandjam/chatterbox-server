@@ -13,13 +13,14 @@ this file and include it in basic-server.js so that it actually works.
 **************************************************************/
 var messages = [];
 var counter = 1;
+var defaultCorsHeaders = {
+  'access-control-allow-origin': '*',
+  'access-control-allow-methods': 'GET, POST, PUT, DELETE, OPTIONS',
+  'access-control-allow-headers': 'content-type, accept',
+  'access-control-max-age': 10 // Seconds.
+};
 var requestHandler = function(request, response) {
-  var defaultCorsHeaders = {
-    'access-control-allow-origin': '*',
-    'access-control-allow-methods': 'GET, POST, PUT, DELETE, OPTIONS',
-    'access-control-allow-headers': 'content-type, accept',
-    'access-control-max-age': 10 // Seconds.
-  };
+  
   console.log('request method ----------------------', request.method);
   // console.log("response ---------------------",response)
   // Request and Response come from node's http module.
