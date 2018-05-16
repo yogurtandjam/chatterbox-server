@@ -43,7 +43,7 @@ var app = {
       url: app.server,
       type: 'POST',
       data: JSON.stringify(message),
-      contentType: 'application/json',
+      contentType: 'application/jsonp',
       success: function (data) {
         // Clear messages input
         app.$message.val('');
@@ -67,7 +67,6 @@ var app = {
         // if (!data.results || !data.results.length) { return; }
         // Store messages for caching later
         app.messages = data.results;
-
         // Get the last message
         var mostRecentMessage = data.results[data.results.length - 1];
 
